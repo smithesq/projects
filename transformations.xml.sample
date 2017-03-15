@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MediaBinTransformation>
+  <Source ContentType="content/product-details" TransformationContext="ComponentProductDetails">
+    <Asset XPath="{language}/InUseImage">
+      <Comment />
+      <Transformation TransformedName="RoundedCornerRight" TaskName="Interflow - JPG Rounded Corner - Top Right" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="197"/>
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+      <Transformation TransformedName="GalleryImage" TaskName="Interflow - JPG" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="520"/>
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+    </Asset>
+    <Asset XPath="{language}/ReferenceImage">
+      <Comment />
+      <Transformation TransformedName="GalleryImage" TaskName="Interflow - JPG" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="520"/>
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+    </Asset>
+    <Asset XPath="GalleryImage">
+      <Comment />
+      <Transformation TransformedName="GalleryImage" TaskName="Interflow - JPG" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="520"/>
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+    </Asset>
+    <Asset XPath="{language}/Brochure[1]">
+      <Comment>We only need the first brochure for the Product Details component</Comment>
+      <Transformation TransformedName="Brochure" TaskName="(None)" />
+    </Asset>
+  </Source>
+
+  <Source ContentType="content/product-details" TransformationContext="ComponentRelatedProducts">
+    <Asset XPath="{language}/WireFrameImage">
+      <Comment />
+      <Transformation TransformedName="WireFrame" TaskName="Interflow - JPG" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="110" />
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+    </Asset>
+  </Source>
+  
+  <Source ContentType="content/product-details" TransformationContext="ComponentHighlightedProduct">
+    <Asset XPath="{language}/WireFrameImage">
+      <Comment />
+      <Transformation TransformedName="WireFrame" TaskName="Interflow - JPG" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="110" />
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+    </Asset>
+  </Source>
+  
+  <Source ContentType="content/product-details" TransformationContext="ComponentProductCallToAction">
+    <Asset XPath="{language}/Brochure">
+      <Comment />
+      <Transformation TransformedName="Brochure" TaskName="(None)" />
+    </Asset>
+  </Source>
+  
+  <Source ContentType="content/product-details" TransformationContext="ComponentProductList">
+    <Asset XPath="{language}/ReferenceImage">
+      <Comment />
+      <Transformation TransformedName="ListImage" TaskName="Interflow - JPG" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="80" />
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+    </Asset>
+    <Asset XPath="{language}/InUseImage">
+      <Comment />
+      <Transformation TransformedName="ListImage" TaskName="Interflow - JPG" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="80" />
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+    </Asset>
+  </Source>
+  
+  <Source ContentType="content/image-small" TransformationContext="ComponentImageSmall">
+    <Asset XPath="{language}/MediaBinTest">
+      <Comment />
+      <Transformation TransformedName="ImageSmall" TaskName="Interflow - JPG" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="180" />
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+    </Asset>
+  </Source>
+
+  <Source ContentType="content/news-item" TransformationContext="ComponentNewsList">
+    <Asset XPath="Picture">
+      <Comment />
+      <Transformation TransformedName="ListImage" TaskName="Interflow - JPG Rounded Corner - Top Right" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="86" />
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+    </Asset>
+  </Source>
+
+  <Source ContentType="content/news-item" TransformationContext="ComponentNewsItem">
+    <Asset XPath="Picture">
+      <Comment />
+      <Transformation TransformedName="RoundedCornerRight" TaskName="Interflow - JPG Rounded Corner - Top Right" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="197"/>
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+      <Transformation TransformedName="RoundedCornerLeft" TaskName="Interflow - JPG Rounded Corner - Top Left" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="197"/>
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+      <Transformation TransformedName="GalleryImage" TaskName="Interflow - JPG" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="520"/>
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+    </Asset>
+    <Asset XPath="GalleryImage">
+      <Comment />
+      <Transformation TransformedName="GalleryImage" TaskName="Interflow - JPG" ResultExt="jpg">
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Output Width" ParameterValue="520"/>
+        <RuntimeParameter ParameterName="Image Size/Image Sizer Parameters/Constrain Proportions" ParameterValue="true"/>
+      </Transformation>
+    </Asset>
+    <Asset XPath="{language}/Document">
+      <Comment />
+      <Transformation TransformedName="Document" TaskName="(None)" />
+    </Asset>
+  </Source>
+
+</MediaBinTransformation>

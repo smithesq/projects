@@ -1,0 +1,19 @@
+mediabin-url=http://www.interflow.eu.com/MediaBinWebService/MediaBinServer.asmx
+# timeout in milliseconds
+mediabin-http-timeout=60000
+mediabin-login-domain=INTERFLOW
+mediabin-login-username=Administrator
+mediabin-login-password=password
+mediabin-max-connections=4
+mediabin-transformations-dcr-path=/templatedata/system/mediabin-transformations/data/transformations.xml
+# update interval in milliseconds
+mediabin-update-check-interval=3600000
+# transformations DCR refresh interval in milliseconds
+mediabin-transformations-refresh-interval=3600000
+
+# Authentication setup for the downloading of files from the /transferws/ mediabin dir 
+# auth-type options: none, basic
+mediabin-download-auth-type=none
+mediabin-download-username=
+mediabin-download-password=
+
