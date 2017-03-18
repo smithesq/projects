@@ -1,0 +1,830 @@
+LSDS start
+
+Starting
+
+Log into the the runtime environment application servers (as weblogic).
+change directories to /opt/oracle/middleware/user_projects/domains/lsds
+Start LSDS:
+msdlva-prtlnyc2: ./startlsdsms2.sh start
+msdlva-prtlnyc3: ./startlsdsms1.sh start
+Tail the logs - you should see something like ####< Jun 27, 2014 11:20:39 AM EST > <Notice> <WebLogicServer> <msdlva-prtlnyc3.csc.nycnet> <lsdsms1> <main> <<WLS Kernel>> <> <> <1387402384022> <BEA-000360> <Server started in RUNNING mode>
+msdlva-prtlnyc2: tail -f servers/lsdsms2/logs/lsdsms2.log
+msdlva-prtlnyc3: tail -f servers/lsdsms1/logs/lsdsms1.log
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+cyberciti.biz/faq/linux-unix-open-ports/
+
+Open ports fonetstat -tulpn
+
+nc -l 32746
+
+My VM:
+
+SSH: 127.0.0.1:8022    tsadm1/
+-----------------------------------------------------------------------------------
+
+RESTRICT:
+iptables -A INPUT -p tcp -s 10.155.45.185 --dport 5000 -j ACCEPT
+
+iptables -A INPUT -p tcp -s 10.155.45.185 --dport 25 -j ACCEPT
+
+WIDE OPEN:
+
+iptables -A INPUT -p tcp --dport 32746 -j ACCEPT
+
+iptables -A OUTPUT -p tcp --dport 32746 -j ACCEPT
+
+/etc/init.d/iptables restart
+
+-----------------------------------------------------------------------------------
+
+
+nc localhost 5000
+
+nc unix.system.ip.here 5000
+
+
+
+ping -a 10.152.190.0
+
+http://msdlva-prtlnyc3.csc.nycnet:1204/events/index.page
+
+
+10.152.188.96 (Ph ws?) remote login to prod.
+
+
+http://172.16.4.71:7001/console/login/LoginForm.jsp
+
+
+http://msdlva-prtlnyc1.csc.nycnet:7001/console/login/LoginForm.jsp
+
+https://appdevwiki.nycnet/appdev/index.php/CMS_Tech_Design
+
+
+SP ootb components: ./WORKAREA/Installed/foundation/component/
+
+/data/agencies/gen/nyc_gov/sites/site/test  ->   http://nyc-dev-web.csc.nycnet/site/test/events/events-filter.page
+
+Current nav deployed to (need to confirm)-> /data/agencies/gen/nyc_gov/test/templatedata/AgencySites/NavBranding/data/nav
+
+
+
+
+
+http://nycteamcity.nycnet/overview.html
+
+URL for TS_NYCGOV RUN BUILD: http://nycteamcity.nycnet/project.html?projectId=project162&tab=projectOverview
+
+QC 1388 -> 	#BUILD_196 
+
+lsds weblogic app port 10.155.43.176:1201
+
+http://msdlva-ctwwcm01/iw-cc/command/iw.ui
+
+/var/log/TeamSite/iwui/content_center.log
+
+
+https://appdevwiki.nycnet/appdev/index.php/TeamSite_Environment_Maintenance
+
+
+Dev livesite logs
+msdlva-prtlnyc2/opt/logs/lsds/livesite.runtime.log
+
+msdlva-prtlnyc1
+odadm1 - D3pl0y3r  
+weblogic - nycwl@mt
+
+
+2:/opt/oracle/middleware/user_projects/domains/lsds/servers/lsdsms2/tmp/_WL_user/iw-runtime1/7w363h/war/WEB-INF/lib
+3:/opt/oracle/middleware/user_projects/domains/lsds/servers/lsdsms1/tmp/_WL_user/iw-runtime1/3ofa4c/war/WEB-INF/lib
+Content directory: cd /opt/oracle/middleware/user_projects/domains/lsds/servers/lsdsadmin/tmp/_WL_user/iw-runtime/ct1egj/war/WEB-INF/lib
+
+Weblogic directory: /opt/oracle/middleware/user_projects/domains/lsds/bin
+
+/etc/init.d/lsdsadmin.sh start
+
+login as weblogic user.
+Stop weblogic:
+
+/opt/oracle/middleware/user_projects/domains/lsds/bin/stopWebLogic.sh
+nycwl@mt
+
+Start LSDS:
+
+not used /opt/oracle/middleware/user_projects/domains/lsds/startlsdsadmin.sh start
+
+
+
+http://msdlva-ctwwcm01/
+
+
+OOTB Nested Fixed layout
+
+/iwmnt/iwadmin/main/spars/WORKAREA/Installed/component-guide/workarea_root/iw/config/fixed-layout/Nested fixed layout.xml
+
+
+Sandbox iwadmin builds
+
+//msdlva-ctwwcm01/iwadmin/main/WORKAREA/iw-home/TeamSite/local/config/lib/content_center/livesite_customer_src/lib
+
+/opt/iw-home/TeamSite/local/config/lib/content_center/livesite_customer_src/lib
+
+
+http://nyc-dev-web.csc.nycnet/events/api/json/get.htm?permalinkName=hurricane-sandy-business-recovery-information&id=3&sequence=4
+
+
+http://nyc-dev-web.csc.nycnet/events/api/json/hurricane-sandy-business-recovery-information/3/4
+--------------------------------------------------------------------------------------------------------------
+
+Copy your Jar to the following location:
+
+Livesite: /opt/oracle/middleware/user_projects/domains/lsds/servers/lsdsadmin/tmp/_WL_user/iw-runtime/ct1egj/war/WEB-INF/lib
+Teamsite: /opt/iw-home/TeamSite/local/config/lib/content_center/livesite_customer_src/lib
+
+Log in putty using the following credentials:
+weblogic : nycwl@mt
+
+Stop weblogic by running the following command:
+/opt/oracle/middleware/user_projects/domains/lsds/bin/stopWebLogic.sh
+
+Start weblogic by running the following command:
+/opt/oracle/middleware/user_projects/domains/lsds/startlsdsadmin.sh start
+
+cd data/agencies/apps
+
+cp -R /opt/oracle/middleware/user_projects/domains/lsds/servers/lsdsadmin/tmp/_WL_user/iw-runtime/ct1egj/war/assets/js/classes/NYC.EventsFilter.js .
+
+
+
+
+/etc/init.d/iwodserver restart
+
+
+
+
+
+
+
+http://nyc-dev-web.csc.nycnet/events/api/json/search.htm?startDate=04/26/2013%2009:00%20AM&endDate=04/26/2013%2010:00%20PM?startDate=04/19/2013%2003:30%20AM&endDate=04/19/2013%2009:30%20PM&boroughs=Bk,Bx,Mn,Qu,SI&categories=Culture+%26+Recreation
+
+
+&boroughs=
+
+package com.doitt.livesite.page.external.nycgov.FindLocalEventsExternal
+
+To enable LSCS queries
+lscs schema.  context active=1
+
+
+SQL:
+
+select level_nav_name, level_id, level_order from nyc311_level where level_num = 1 and level_expiration >= sysdate order by level_order
+
+
+select level_nav_name, level_id, level_order from nyc311_level where level_num = 1 and level_expiration >= sysdate order by level_nav_name
+
+
+
+
+
+
+select level_nav_name, level_id, level_order from nyc311_level where level_num = 1 and level_expiration >= sysdate order by level_nav_name
+
+select level_nav_name, level_id, level_order from nyc311_level where level_num = 2 and level_expiration >= sysdate order by level_nav_name
+
+select level_nav_name, level_id, level_order from nyc311_level where level_num = 3 and level_expiration >= sysdate order by level_nav_name
+
+select distinct(level_num) from nyc311_level
+
+
+select * from ts_event where event_id=10
+
+
+
+select * from ts_event_definition where name like '%Festival Events%'
+
+
+
+http://sandboxtest.com/nyc-demo/
+
+nycinternal
+c!tyh@ll
+
+
+<Data>
+  <External>
+    <Prefix Object="com.doitt.livesite.page.external.nycgov.Categories311External" Method="getCategories" Scope="local"/>
+    <Object Scope="local">com.doitt.livesite.services.lscs.NewsFilterExternal</Object>
+    <Method>getNewsFilterResults</Method>
+  </External>
+</Data>
+
+https://citypointwss.csc.nycnet/sites/ReinventNYC/CMS/Shared%20Documents/NYCGOVList.xlsx 
+
+
+
+DESC EVENTS
+
+SELECT * FROM ts_event where EVENT_DEFINITION_ID = '88827428-3bc0-420b-ae32-806b6f843488'
+
+
+newsletters: 
+
+
+XSL custom location:
+/opt/iw-home/ApplicationContainer/server/default/deploy/iw-cc.war/WEB-INF/classes/com/interwoven/xsl/doitt/nycgov
+
+//msdlva-ctwwcm01/iwadmin/main/WORKAREA/iw-home/TeamSite/local/config/lib/content_center/livesite_customer_src/etc/classes/com/interwoven/xsl/doitt/nycgov
+
+
+/iwmnt/iwadmin/main/WORKAREA/iw-home/TeamSite/local/config/lib/content_center/livesite_customer_src/etc/classes/com/interwoven/xsl/doitt/nycgov/global.xsl
+
+Test: http://mstlva-prtlnyc1:1201/events
+
+
+311apps/apps00za
+
+select * from web_faq where simple_url_id = 42
+
+Delete from disk checkbox
+SVN : Explorer - Trunk - right click - finish
+
+
+events db: pwd ent4evedev
+                         
+
+
+
+
+apps 311 tst (311 api)
+
+msduvd-ctwprtl1.nycnet:1525/prtltst
+apps311/apps00tstza
+
+CITY SHAREPOINT
+
+CSC\
+/data/agencies/gen/nyc_gov/templatedata/misc/HeaderAndFooter/data/es_US
+
+
+Spanish i &#237;
+
+Spanish e  &#233;
+
+./data/agencies/gen/nyc_gov/sites/office-of-the-mayor/es_us/admin-officials.page
+
+
+It’s up on all 3 lsds app servers:
+
+http://msslva-ctwprtl2.csc.nycnet:1204/connect/social-media.page
+
+http://msslva-ctwprtl3.csc.nycnet:1204/connect/social-media.page
+
+http://msslva-ctwprtl4.csc.nycnet:1204/connect/social-media.page
+
+and the load balancer:  http://nyc-stg-web.csc.nycnet/connect/social-media.page
+
+
+Used:
+/etc/init.d/lsdsadmin.sh start
+
+/opt/app_config/java_app/lsds/livesite_customer/config.properties
+
+mstlva-ctwwcm02:7001
+
+
+
+Spanish dcrs pubed:
+
+2013 178 to 182
+
+2012 425 - 429
+ 2011 - 456 - 460
+2010 -525-530
+
+News CArousel LSCS query (12) http://msplva-ctwwcma.csc.nycnet:7004/lscs/v1/document?q=%28%20%28TeamSite/Templating/DCR/Type:News/PressRelease%29%20AND%20%28NOT%20TeamSite/Metadata/Language:Spanish%29%20AND%20%28TeamSite/Metadata/ContentType:press_release%29%20%20AND%20%28NOT%20TeamSite/Metadata/Hidden:1%29%20%29%20&max=12&sort=-TeamSite/Metadata/Date&project=//msplva-ctwwcm05.csc.nycnet/production/main/NYC_gov_new
+
+
+http://msplva-ctwwcma.csc.nycnet:7004/lscs/v1/document$TeamSite/Metadata/PermalinkName?q=(TeamSite/Templating/DCR/Type:AgencySites/Articles) AND (TeamSite/Metadata/PRNumber:0216)
+
+
+http://msplva-ctwwcma.csc.nycnet:7004/lscs/v1/document?q=%28%20%28TeamSite/Metadata/Categories:Business%29%20  %28%20%28TeamSite/Templating/DCR/Type:News/PressRelease%29%20AND%20%28NOT%20TeamSite/Metadata/Language:Spanish%29%20AND%20%28TeamSite/Metadata/ContentType:press_release%29%20%20AND%20%28NOT%20TeamSite/Metadata/Hidden:1%29%20%29%20&max=12&sort=-TeamSite/Metadata/Date&project=//msplva-ctwwcm05.csc.nycnet/production/main/NYC_gov_new
+%28%20%28TeamSite/Metadata/Categories:Business%29%20
+
+
+CATEGORY CIVIC SERVICES:
+http://msdlva-ctwwcm02:7004/lscs/v1/document?q=((TeamSite/Templating/DCR/Type:News/PressRelease) AND (TeamSite/Metadata/Categories:civic-services) AND (NOT TeamSite/Metadata/Language:Spanish) AND (TeamSite/Metadata/ContentType:press_release) AND (NOT TeamSite/Metadata/Hidden:1))&max=12&sort=-TeamSite/Metadata/Date&project=//msdlva-ctwwcm01/production/main/NYC_gov_new
+
+http://msdlva-ctwwcm02:7001/lscs/v1/document?q=((TeamSite/Templating/DCR/Type:News/PressRelease) AND (NOT TeamSite/Metadata/Language:Spanish) AND (TeamSite/Metadata/ContentType:press_release) AND (NOT TeamSite/Metadata/Hidden:1))&max=12&sort=-TeamSite/Metadata/Date&project=//msdlva-ctwwcm01/production/main/NYC_gov_new
+
+
+\\doitt.nycnet\root\MT_User_Data\djung\workspace
+
+
+
+
+
+tail -300f /opt/iw-home/ApplicationContainer/server/default/log/server.log
+
+
+Service DCT:
+
+//msdlva-ctwwcm01/311/main/agencies/WORKAREA/content/templatedata/content/service/data/3-1-1
+
+
+Used:
+/etc/init.d/lsdsadmin.sh start
+
+
+http://appdevwiki.nycnet/appdev/index.php/Newsletters_API_Integration_Guide#Unsubscribe
+
+
+
+
+http://mstlva-ctwwcm02:7001/lscs/v1/document?q=((TeamSite/Templating/DCR/Type:News/PressRelease)  AND (TeamSite/Metadata/Categories:Education) AND (NOT TeamSite/Metadata/Language:Spanish) AND (TeamSite/Metadata/ContentType:press_release) AND (NOT TeamSite/Metadata/Hidden:1))&max=12&sort=-TeamSite/Metadata/Date&project=//msdlva-ctwwcm01/production/main/NYC_gov_new
+
+
+Builds:
+
+1) Teamsite ls_nycgov.jar Build.sh
+
+cd /opt/iw-home/TeamSite/local/config/lib/content_center/livesite_customer_src
+
+sudo /opt/iw-home/TeamSite/local/config/lib/content_center/livesite_customer_src/build.sh
+
+
+
+2) 
+
+1.	Export it from your Eclipse setup using the name ts_nycgov.jar.
+2.	Copy the jar to the directory: /opt/iw-home/TeamSite/local/config/lib/content_center/customer_src/lib
+3.	Run /opt/iw-home/TeamSite/bin/make_toolkit.ipl
+
+cd /opt/iw-home/TeamSite/local/config/lib/content_center/customer_src
+sudo /opt/iw-home/TeamSite/bin/make_toolkit.ipl -target clobber
+sudo /opt/iw-home/TeamSite/bin/make_toolkit.ipl -target update
+
+
+If need to restart iwserver
+
+su /etc/init.d/iw.server stop|start
+sudo /etc/init.d/iw.server stop|start
+tail -f /var/log/TeamSite/iwserver.log
+
+
+
+
+
+
+Restart LSDS cluster in dev:
+
+Jar file location:
+ 
+msdlva-prtlnyc2 : /opt/oracle/middleware/user_projects/domains/lsds/servers/lsdsms2/tmp/_WL_user/iw-runtime1/7w363h/war/WEB-INF/lib
+msdlva-prtlnyc3 : /opt/oracle/middleware/user_projects/domains/lsds/servers/lsdsms1/tmp/_WL_user/iw-runtime1/3ofa4c/war/WEB-INF/lib
+ 
+ App  Log Location (livesite.runtime.log) : /opt/logs/lsds on both servers 
+ 
+ 
+To restart:
+ 
+msdlva-prtlnyc2:
+ 
+ /etc/init.d/lsdsms2.sh stop
+/etc/init.d/lsdsms2.sh start
+ 
+tail -300f /opt/oracle/middleware/user_projects/domains/lsds/servers/lsdsms2/logs/lsdsms2.log
+ 
+msdlva-prtlnyc3:
+ 
+
+/etc/init.d/lsdsms1.sh stop
+/etc/init.d/lsdsms1.sh start
+ 
+tail -300f /opt/oracle/middleware/user_projects/domains/lsds/servers/lsdsms1/logs/lsdsms1.log
+
+
+Webtrends DEv report server:
+http://mtcscwbtrndev02.csc.nycnet:7099/wrc/bin/WebTrendsReportingCenter
+
+djung/Wdev_CIT_001
+
+TS STG:
+
+tsadm1/!D3pl0y3rS^g
+!C0nn3ct
+
+
+
+SVN subbranch: svn://prtl-dev-src1.nycnet/teamsite-repo/LS_NYCGOV/branches/test
+
+count files in dir:ls -l | wc -l
+
+
+ find . | xargs grep -r "sibling" > /tmp/dan_sibling_grep.txt
+
+ find "*.log" | xargs grep -r "sibling" > /tmp/dan_sibling_grep.txt
+
+
+find / -type d -name "httpd"
+ls -d */
+
+tar xvf tarball.tar
+
+
+
+/etc/iw.cfg
+
+sudo /etc/init.d/iw.server stop
+sudo /etc/init.d/iw.server start
+
+
+iwproxy_preconnect_remap
+ if you get confused, run iwproxy in -d mode 
+#     (or -dx) to watch the rewrite logic in action.  
+
+
+http://nyc-tst-web.csc.nycnet/home/lscs/NewsFilterService.page?category=all&contentType=all&startDate=01/01/2014&endDate=12/31/2014&language=english&pageNumber=1
+
+Agency App root (current):
+/data/agencies/gen/nyc_gov/sites/site/test|test4|test
+
+Multiple LSDS domains: (obsolete)
+/data/agencies/gen/nyc_gov/test/sites/test
+/data/agencies/gen/nyc_gov/sites/test4/about
+
+
+TST prtlnyc2:
+
+/opt/oracle/middleware/user_projects/domains/lsds/servers/lsdsms2/tmp/_WL_user/iw-runtime1/7w363h/war/WEB-INF/lib/ls_nycagency|ls_nycgov.jar
+
+Agency DCRs deployed to:
+/data/agencies/gen/nyc_gov/test5/templatedata/AgencySites/Programs/data
+
+
+
+
+
+./LiveSiteCSAuth/authoring/etc/deployment/config/lscs-authoring.xml
+./ApplicationContainer/server/default/deploy/iw-cc.war/WEB-INF/conf/livesite/resources/lscs-resource-config.xml
+
+
+
+() - context.getSite().getBranch(): //msdlva-ctwwcm01/production/main/NYC_gov_new/test
+2014-06-20 13:35:05,737 [http-0.0.0.0-8080-3] ERROR com.doitt.ts_nycagency.test () - context.getSite().getDirectory(): test
+2014-06-20 13:35:05,737 [http-0.0.0.0-8080-3] ERROR com.doifintt.ts_nycagency.test () - context.getSite().getName(): test
+2014-06-20 13:35:05,737 [http-0.0.0.0-8080-3] ERROR com.doitt.ts_nycagency.test () - context.getSite().getPath(): //localhost.localdomain/production/main/NYC_gov_new/test/WORKAREA/content/sites/test
+
+
+
+PROD 311 DB:
+user=TS311PRD
+password=prdc0n0t
+url:jdbc:oracle:thin:@mspuvd-wcmsprtl1.cscx.nycnet:2012:WCMSPRD
+
+
+DEBUG < INFO < WARN < ERROR < FATAL
+
+
+
+Agency Hero:
+
+Status & Sidebar: 600 x 460
+Status, no sidebar: 820 x 460
+No status, sidebar: 720 x 460
+Image only: 940 x 460
+
+https://citypointwss.csc.nycnet/sites/ReinventNYC/RedesignImplementation/Shared%20Documents/Forms/AllItems.aspx
+
+scp programs.component tsadm1@msdlva-ctwwcm01.csc.nycnet:/iwmnt/iwadmin/main/livesite/component/WORKAREA/shared/doitt/nycgov/Home
+
+Copy the file "foobar.txt" from a remote host to the local host
+
+    $ scp your_username@remotehost.edu:foobar.txt /some/local/directory 
+
+Copy the file "foobar.txt" from the local host to a remote host
+
+    $ scp foobar.txt your_username@remotehost.edu:/some/remote/directory 
+
+Copy the directory "foo" from the local host to a remote host's directory "bar"
+
+    $ scp -r foo your_username@remotehost.edu:/some/remote/directory/bar 
+
+
+
+tar -cvf cache_webroot_only.tar cache.Webroot.*
+
+
+
+msplva-ctwprtl1.appdmz.nycnet
+
+
+http://nyc-tst-web.csc.nycnet:1204/site/test3/index.page
+
+
+
+/opt/iw-home/TeamSite/local/config/lib/content_center/customer_src/web/custom/jsp/EventsLookup.jsp
+
+
+
+http://nyc-dev-web.csc.nycnet/site/test/NewsFilterService.page?category=df29c586-8311-482f-8f91-5c877bd62157&contentType=all&startDate=01/01/2014&endDate=12/31/2014&language=english&pageNumber=1
+
+Agency createFileList
+/opt/iw-home/TeamSite/tmp/test123.txt
+
+
+ls -d */
+
+find -mtime 0
+find -ctime 0
+find . -name "*.log" -mtime -1 -exec ls -ltr {} \;
+find . -mtime -1 -print
+
+find -type f -name "*.component"
+
+find . -name default.site -mtime -5 -print
+
+find . -cmin -13
+
+ls | wc -l
+
+
+
+
+
+
+
+
+
+/opt/iw-home/OpenDeployNG/custom/dnr/templatedataDnr.ipl results:
+
+Copy file to: [/data/agencies/gen/nyc_gov/templatedata/AgencySites/Text/data/test/alt_home_text]
+
+ Destination directory value: [/data/agencies/gen/nyc_gov/templatedata/AgencySites/Text/data/test]
+Target directory: [/data/agencies/gen/nyc_gov/templatedata/AgencySites/Text/data/test/alt_home_text]
+File copied to [/data/agencies/gen/nyc_gov/templatedata/AgencySites/Text/data/test/alt_home_text]
+
+
+
+PROD PORTAL FILE SIZE:
+39949 Aug 11 2014 ls_nycagency.jar
+190001 Sep 9 2014 ls_nycgov.jar
+
+weblogic logs:/opt/oracle/middleware/user_projects/domains/lsds/servers/lsdsms1/logs/lsdsms1.log
+
+
+Remove files in current dir
+rm -rf *
+
+
+VM:
+
+Winscp:  127.0.0.1  sftp port 8022
+          root/
+
+
+c:\program files (x86)\java\jdk1.6.0_45\bin\jar uf C:\_agency_templates\fix\csg\ls_nycagency.jar C:\_agency_templates\fix\csg\NYCGovContent.class
+
+jar uf C:\_agency_templates\fix\csg\ls_nycagency.jar 
+
+
+c:\program files (x86)\java\jdk1.6.0_45\bin\jar uf C:\_agency_templates\fix\csg\ls_nycagency.jar gov\nyc\doitt\livesite\agencies\page\external\NYCGovContent.class
+
+
+Network connectivity:
+
+nc -zv bcpxy.nycnet 8080
+
+
+nc bcpxy.nycnet 8080 &> /dev/null; echo $?
+
+0 port open
+1 port closed
+
+
+cat < /dev/tcp/bcpxy.nycnet/8080
+
+
+Extract war file:
+echo %java_home%
+
+jar -xvf calendar.war
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+su tsadm1 -c 'sass --scss /iwmnt/production/main/NYC_gov_new/test/WORKAREA/content/assets/test/scss/message.scss /iwmnt/production/main/NYC_gov_new/test/WORKAREA/content/assets/test/css/message.css'
+
+
+My vm:
+
+/opt/iw-home/TeamSite/iw-perl/bin/iwperl kill_15.ipl
+
+
+find . -type f -exec ls -ltr '{}'  \;
+
+TS Upgrade:
+find . -name *.cfg -exec cp -R '{}' /tmp/TS732_snapshot \;
+-
+df
+netstat -nlp |grep :3035
+
+
+
+tar -xvf 311_Contact.tar --overwrite
+
+
+find . -name "*.dcr" -type f -mtime -6 -exec ls -ltr {} \;
+
+ls -l |grep "^d"
+
+
+1 minute to shutdown!
+shutdown -r +1
+
+
+find . -name "installer.log.last" -exec grep "ERROR" '{}' \;
+
+Print largest file:
+find . -type f -printf "%s\t%p\n" | sort -n | tail -1
+
+Sort by size: (untested)
+du -a -h --max-depth=1 | sort -hr
+
+
+<Oracle>
+Configure:
+/u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh
+
+Oracle DB 11g Express - Installed successfully on Linux 6.2 VM
+
+export ORACLE_SID=XE
+export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
+ (optional)
+cd /u01/app/oracle/product/11.2.0/xe/bin
+./sqlplus
+
+Connect as sysdba
+su oracle
+./sqlplus / as sysdba
+
+
+<LINUX specific oracle datapump import>
+
+
+Configure:
+/u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh
+
+Oracle DB 11g Express - Installed successfully on Linux 6.2 VM
+
+export ORACLE_SID=XE
+export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
+ (optional)
+cd /u01/app/oracle/product/11.2.0/xe/bin
+./sqlplus
+
+sqlplus iwsitepub/password@localhost:1521/xe
+
+sqlplus iwreports/password@localhost:1521/xe
+
+
+sqlplus wcmsdev/password@localhost:1521/xe
+
+
+Connect as sysdba
+su oracle
+./sqlplus / as sysdba
+
+
+
+CREATE USER iwsitepub IDENTIFIED BY password;
+
+CREATE USER iwcommon IDENTIFIED BY password;
+
+CREATE USER iwreports IDENTIFIED BY password;
+grant ALL PRIVILEGES to iwsitepub;
+
+
+select instance_name from v$instance;
+select username from dba_users;
+
+
+
+
+
+AE: Workspace details:
+
+	database username:djung
+	ae username: appexpress
+	
+
+
+ALTER USER "IWCOMMON" IDENTIFIED BY VALUES 'S:53DF699FCBF91219E54B1D5C976780E97E61C8CC78A8B6E6DB7F16E0665B;BD7C80E89A802D93' DEFAULT TABLESPACE "IW_DATA" TEMPORARY TABLESPACE "TEMP" PROFILE "DB_APP_PROFILE"
+
+ALTER USER "IWREPORTS" IDENTIFIED BY password DEFAULT TABLESPACE "IW_DATA" TEMPORARY TABLESPACE "TEMP" PROFILE "DB_APP_PROFILE"
+ALTER USER "IWSITEPUB" IDENTIFIED BY password DEFAULT TABLESPACE "IW_DATA" TEMPORARY TABLESPACE "TEMP" PROFILE "DB_APP_PROFILE"
+
+create PROFILE DB_APP_PROFILE LIMIT CONNECT_TIME UNLIMITED;
+create profile DB_APP_PROFILE LIMIT PRIVATE_SGA UNLIMITED;
+
+impdp iwsitepub/password directory=DATA_PUMP_DIR dumpfile=iwsitepub.dmp logfile=iwsitepub4.log full=y; (2 errors)
+impdp iwreports/password directory=DATA_PUMP_DIR dumpfile=iwreports.dmp logfile=iwreports3.log full=y; (8 errors)
+impdp iwcommon/password directory=DATA_PUMP_DIR dumpfile=iwcommon.dmp logfile=iwcommon3.log full=y; (4 errors)
+
+
+
+
+impdp iwsitepub/password directory=DATA_PUMP_DIR dumpfile=iwsitepub.dmp logfile=iwsitepub2.log full=y; (3 errors)
+impdp iwcommon/password directory=DATA_PUMP_DIR dumpfile=iwcommon.dmp logfile=iwcommon.log full=y;   260 errors, tables created, no data.
+
+
+
+impdp SYSTEM/password directory=DATA_PUMP_DIR dumpfile=iwreports.dmp logfile=iwreports2.log full=y;
+impdp iwreports/password directory=DATA_PUMP_DIR dumpfile=iwreports.dmp logfile=iwreports.log full=y; (13 errors -tables not created, error iw_data initial extent)
+
+DROP TABLESPACE temp INCLUDING CONTENTS AND DATAFILES;
+create tablespace IW_INDX datafile '/u01/app/oracle/oradata/XE/iw_indx_createdby_wcmsdev.dbf' size 2048M
+create tablespace IW_DATA datafile '/u01/app/oracle/oradata/XE/iw_data_createdby_wcmsdev.dbf' size 5120M
+create tablespace IW_DATA datafile '/u01/app/oracle/oradata/XE/iw_data_createdby_iwsitepub.dbf' size 100M
+
+</LINUX>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE USER iwsitepub IDENTIFIED BY password;
+GRANT CONNECT TO iwsitepub;
+grant ALL PRIVILEGES to iwsitepub;
+
+
+
+select instance_name from v$instance;
+select username from dba_users;
+
+ApplicationEXpress:
+  Workspace details:
+	database username:djung
+	ae username: appexpress
+</Oracle>
+
+
+Red Hat Enterprise Linux 6.2 
+     cat /etc/*-release
+     
+
+64 bit (x86_64)
+
+cat /var/log/dmesg | grep Memory  (7.34 GB RAM)
+
+Logs -> Jboss app container: /opt/iw-home/ApplicationContainer/server/default/log
+
+
+	
+/opt/iw-home/TeamSite/bin/iwstoreadm -a default	
+
+8.1 Upgrade docs:  P:\Interwoven\Product Documentation\TeamSite 8.0\TS_8.0_Runtime_Install_en.pdf
+
+JCS Admin urls:
+
+http://msdlva-prtlnyc2:1204/iw/admin/JCS.jsp
+http://mstlva-prtlnyc1:1204/iw/admin/JCS.jsp
+http://msslva-ctwprtl2:1204/iw/admin/JCS.jsp
+http://msslva-ctwprtl3:1204/iw/admin/JCS.jsp
+http://msslva-ctwprtl4:1204/iw/admin/JCS.jsp
+
+http://h20435.www2.hp.com/hpg/attachments/hpg/livesite/7229/1/cache.txt
